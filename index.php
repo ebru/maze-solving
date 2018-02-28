@@ -1,59 +1,68 @@
 <?php
 
-$maze = array(
-         array('S', '#', '#', '#', '#', '#'),
-         array('.', '.', '.', '.', '.', '#'),
-         array('#', '.', '#', '#', '#', '#'),
-         array('#', '.', '#', '#', '#', '#'),
-         array('.', '.', '.', '#', '.', 'G'),
-         array('#', '#', '.', '.', '.', '#'));
+class Maze {
 
-         echo "<b>Maze:</b> <br>";
+  public $maze = array(
+    array('#', '#', '#', '#', '#', '#'),
+    array('.', '.', '.', '.', '.', '#'),
+    array('#', '.', 'S', '#', '#', '#'),
+    array('#', '.', '#', '#', '#', '#'),
+    array('.', '.', '.', '#', '.', 'G'),
+    array('#', '#', '.', '.', '.', '#'));
 
-         for ($x = 0; $x < count($maze); $x++) {
-           echo "<table><tr>";
-           for ($y = 0; $y < count($maze[$x]); $y++) {
+  public function display() {
 
-             echo "<td width='10px'>" . $maze[$x][$y] . "</td>";
+    for ($x = 0; $x < count($this->maze); $x++) {
+      echo "<table><tr>";
 
-             if($maze[$x][$y] == 'S') {
-               $start_x = $x;
-               $start_y = $y;
-             }
-           }
-           echo "</tr></table>";
-         }
+      for ($y = 0; $y < count($this->maze[$x]); $y++) {
+        echo "<td width='10px'>" . $this->maze[$x][$y] . "</td>";
+      }
+      echo "</tr></table>";
+    }
+  }
 
-         function findPath($x, $y) {
+  public function findStartPoints() {
 
-            global $maze;
-            if (!isset($maze[$x][$y])) { return false; }
-            if ($maze[$x][$y] == 'G') { return true; }
-           	if ($maze[$x][$y] != '.' && $maze[$x][$y] != 'S') { return false; }
+    for ($x = 0; $x < count($this->maze); $x++) {
+      for ($y = 0; $y < count($this->maze[$x]); $y++) {
 
-             $maze[$x][$y] = '+';
+        if($this->maze[$x][$y] == 'S') {
+          $start_x = $x;
+          $start_y = $y;
+        }
+      }
+    }
+    return array($start_x, $start_y);
+  }
 
-             if(findPath($x, $y-1) || findPath($x+1, $y) || findPath($x, $y+1) || findPath($x-1, $y)) {
-               return true;
-             }
+  public function findPath($x, $y) {
 
-             $maze[$x][$y] = '.';
-             return false;
-           }
+     if (!isset($this->maze[$x][$y])) { return false; }
+     if ($this->maze[$x][$y] == 'G') { return true; }
+     if ($this->maze[$x][$y] != '.' && $this->maze[$x][$y] != 'S') { return false; }
 
-         findPath($start_x, $start_y);
-         $maze[$start_x][$start_y] = 'S';
+     $this->maze[$x][$y] = '+';
 
-         echo "<br> <b>Solution:</b> <br>";
+     if($this->findPath($x, $y-1) || $this->findPath($x+1, $y) || $this->findPath($x, $y+1) || $this->findPath($x-1, $y)) {
+        return true;
+     }
 
-         for ($x = 0; $x < count($maze); $x++) {
-           echo "<table><tr>";
-           for ($y = 0; $y < count($maze[$x]); $y++) {
+     $this->maze[$x][$y] = '.';
+     return false;
+  }
+}
 
-             echo "<td width='10px'>" . $maze[$x][$y] . "</td>";
+$maze = new Maze();
+$maze->display();
 
-           }
-           echo "</tr></table>";
-         }
+$start_points = $maze->findStartPoints();
+$start_x = $start_points[0];
+$start_y = $start_points[1];
+
+$maze->findPath($start_x, $start_y);
+$maze->maze[$start_x][$start_y] = 'S';
+
+$maze->display();
 
 ?>
