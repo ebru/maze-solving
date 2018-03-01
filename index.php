@@ -2,14 +2,28 @@
 
 class Maze {
 
-  // create two dimension array for the points of maze
-  public $points = array(
-    array('#', '#', '#', '#', '#', '#'),
-    array('.', '.', '.', '.', '.', '#'),
-    array('#', '.', 'S', '#', '#', '#'),
-    array('#', '.', '#', '#', '#', '#'),
-    array('.', '.', '.', '#', '.', 'G'),
-    array('#', '#', '.', '.', '.', '#'));
+  // variables for points of the maze
+  public $points = array();
+  public $start_x;
+  public $start_y;
+
+  // get maze from the text file, build its points with two dimensional array
+  public function __construct() {
+    $file = fopen('maze.txt', 'r');
+    $x = 0;
+
+    while (!feof($file)) {
+
+      $line = trim(fgets($file));
+
+      for($y = 0; $y < strlen($line); $y++ ) {
+    		$this->points[$x][$y] = $line[$y];
+    		if ( $line[$y] == 'S') { $this->start_x = $x; $this->start_y = $y; }
+    	}
+      $x++;
+    }
+    fclose($file);
+  }
 
   // display the maze on screen
   public function display() {
@@ -22,23 +36,6 @@ class Maze {
       }
       echo "</tr></table>";
     }
-  }
-
-  // find start points of the maze
-  public function findStartPoints() {
-
-    for ($x = 0; $x < count($this->points); $x++) {
-      for ($y = 0; $y < count($this->points[$x]); $y++) {
-
-        if($this->points[$x][$y] == 'S') {
-          $start_x = $x;
-          $start_y = $y;
-        }
-      }
-    }
-    return array(
-      'x' => $start_x,
-      'y' => $start_y);
   }
 
   // find possible path to follow recursively
@@ -59,18 +56,16 @@ class Maze {
   }
 }
 
+// create new Maze object
 $maze = new Maze();
 
 echo "<h3>Maze:</h3>";
 
 $maze->display();
 
-$start_points = $maze->findStartPoints();
-$start_x = $start_points['x'];
-$start_y = $start_points['y'];
-
-$maze->findPath($start_x, $start_y);
-$maze->points[$start_x][$start_y] = 'S';
+// find path and re-build the start point as 'S'
+$maze->findPath($maze->start_x, $maze->start_y);
+$maze->points[$maze->start_x][$maze->start_y] = 'S';
 
 echo "<h3>Solution:</h3>";
 
