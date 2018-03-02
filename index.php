@@ -51,7 +51,7 @@ class Maze {
         return true;
      }
 
-     $this->points[$x][$y] = '.';
+     $this->points[$x][$y] = 'x';
      return false;
   }
 }
