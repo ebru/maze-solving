@@ -1,22 +1,34 @@
 <?php
+/**
+ * Index file to show the maze
+ *
+ * PHP version 7
+ *
+ * @category  PHP
+ * @package   Maze
+ * @author    Ebru Kaya <ebru.kaya@sony.com>
+ * @copyright 2018 Ebru Kaya
+ * @license   The PHP License, version 3.01 http://www.php.net/license/3_01.txt
+ * @link      http://bitbucket.com/ebrukaya
+ */
 
-require_once('vendor/autoload.php');
-require_once('maze.php');
+require_once 'vendor/autoload.php';
+require_once 'maze.php';
 
-// create new Maze object
+// Create new Maze object
 $maze = new Maze();
 
-// load data of the maze
+// Load data of the maze
 $maze->load();
 
-// display it on screen
+// Display it on screen
 $maze->display($title = "Maze:");
 
-// find path and re-build the start point as 'S'
+// Find path and re-build the start point as 'S'
 $maze->findPath($maze->start_x, $maze->start_y);
 $maze->points[$maze->start_x][$maze->start_y] = 'S';
 
-// display the solution on screen
+// Display the solution on screen
 $maze->display($title = "Solution:");
 
 ?>
