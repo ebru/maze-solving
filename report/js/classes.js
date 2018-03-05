@@ -1,0 +1,71 @@
+var classes = [
+    {
+        "name": "Maze",
+        "interface": false,
+        "methods": [
+            {
+                "name": "load",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "display",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "findPath",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            }
+        ],
+        "nbMethodsIncludingGettersSetters": 3,
+        "nbMethods": 3,
+        "nbMethodsPrivate": 0,
+        "nbMethodsPublic": 3,
+        "nbMethodsGetter": 0,
+        "nbMethodsSetters": 0,
+        "ccn": 10,
+        "ccnMethodMax": 5,
+        "externals": [],
+        "parents": [],
+        "lcom": 1,
+        "length": 134,
+        "vocabulary": 33,
+        "volume": 675.95,
+        "difficulty": 29.25,
+        "effort": 19771.5,
+        "level": 0.03,
+        "bugs": 0.23,
+        "time": 1098,
+        "intelligentContent": 23.11,
+        "number_operators": 44,
+        "number_operands": 90,
+        "number_operators_unique": 13,
+        "number_operands_unique": 20,
+        "cloc": 55,
+        "loc": 108,
+        "lloc": 53,
+        "mi": 85.91,
+        "mIwoC": 41.23,
+        "commentWeight": 44.69,
+        "kanDefect": 0.73,
+        "relativeStructuralComplexity": 1,
+        "relativeDataComplexity": 3,
+        "relativeSystemComplexity": 4,
+        "totalStructuralComplexity": 3,
+        "totalDataComplexity": 9,
+        "totalSystemComplexity": 12,
+        "pageRank": 1,
+        "afferentCoupling": 0,
+        "efferentCoupling": 0,
+        "instability": 0,
+        "violations": {}
+    }
+]

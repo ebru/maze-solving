@@ -1,5 +1,6 @@
 {
     "require": {
-        "squizlabs/php_codesniffer": "3.*"
+        "squizlabs/php_codesniffer": "3.*",
+        "phpmetrics/phpmetrics": "2.*"
     }
 }
