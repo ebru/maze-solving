@@ -29,8 +29,8 @@ class Maze
      * Variable for the points of the maze
      *
      * @var $points Array declaration for the points of the maze
-     * @var $start_x Start point as column
-     * @var $start_y Start point as row
+     * @var $start_x Start position in column
+     * @var $start_y Start position in row
      */
     public $points = array();
     public $start_x;
@@ -92,8 +92,8 @@ class Maze
      *
      * Finds possible path to follow recursively
      *
-     * @param int $x The position of row in array
-     * @param int $y The position of column in array
+     * @param int $x The position of column in array
+     * @param int $y The position of row in array
      *
      * @return true if it is a proper path to follow, false if it is a dead end
      */
