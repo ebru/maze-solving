@@ -26,13 +26,19 @@ class Maze
 {
 
     /**
-     * Variables for points of the maze
+     * Variable for the points of the maze
+     *
+     * @var $points Array declaration for the points of the maze
+     * @var $start_x Start point as column
+     * @var $start_y Start point as row
      */
     public $points = array();
     public $start_x;
     public $start_y;
 
     /**
+     * Load
+     *
      * Gets maze from text file, and builds its points with two dimensional array
      *
      * @return array contains the points of the maze
@@ -59,6 +65,8 @@ class Maze
     }
 
     /**
+     * Display
+     *
      * Echos table structure and points to display the maze on screen
      *
      * @param string $title The title of the maze to display
@@ -80,6 +88,8 @@ class Maze
     }
 
     /**
+     * Find Path
+     *
      * Finds possible path to follow recursively
      *
      * @param int $x The position of row in array
