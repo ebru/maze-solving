@@ -8,7 +8,7 @@ class Maze {
   public $start_y;
 
   // get maze from the text file, build its points with two dimensional array
-  public function __construct() {
+  public function load() {
     $file = fopen('maze.txt', 'r');
     $x = 0;
 
@@ -26,7 +26,9 @@ class Maze {
   }
 
   // display the maze on screen
-  public function display() {
+  public function display($title) {
+
+    echo "<h3>". $title ."</h3>";
 
     for ($x = 0; $x < count($this->points); $x++) {
       echo "<table><tr>";
