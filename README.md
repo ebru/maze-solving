@@ -1,6 +1,6 @@
 I was asked to write a script to find a possible path in a maze.
 
-![Scheme](screenshot.png)
+![Scheme](maze.png)
 
 # Resources #
 
