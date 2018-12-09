@@ -1,26 +1,6 @@
 <?php
 /**
- * Maze file to handle functionality of a maze which is given
- *
- * PHP version 7
- *
- * @category  PHP
- * @package   Maze
- * @author    Ebru Kaya <ebru.kaya@sony.com>
- * @copyright 2018 Ebru Kaya
- * @license   The PHP License, version 3.01 http://www.php.net/license/3_01.txt
- * @link      http://bitbucket.com/ebrukaya
- */
-
-/**
  * Maze class to retrieve points of the text file contains a maze
- *
- * @category  Class
- * @package   Maze
- * @author    Ebru Kaya <ebru.kaya@sony.com>
- * @copyright 2018 Ebru Kaya
- * @license   The PHP License, version 3.01 http://www.php.net/license/3_01.txt
- * @link      http://bitbucket.com/ebrukaya
  */
 class Maze
 {
@@ -121,5 +101,3 @@ class Maze
         return false;
     }
 }
-
-?>
