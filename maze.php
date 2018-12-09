@@ -4,7 +4,6 @@
  */
 class Maze
 {
-
     /**
      * Variable for the points of the maze
      *
